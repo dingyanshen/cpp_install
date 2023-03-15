@@ -1,0 +1,18 @@
+"将本文件移入 家目录覆盖同名文件 即可一键编译运行cpp文件
+map <F5> :call CompileRunGcc()<CR>
+
+
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec '!clear && g++ % && ./a.out'
+    elseif &filetype == 'cpp'
+        exec '!clear && g++ % && ./a.out'
+    endif
+endfunc
+
+
+" wsl: sudo ln -s /mnt/c/Windows/system32/clip.exe /usr/bin/clip
+" 支持在Visual模式下，通过C-y复制到系统剪切板
+vnoremap <C-c> :'<,'>w !clip <CR> <CR>
+

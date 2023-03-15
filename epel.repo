@@ -1,0 +1,31 @@
+## Note, this file is written by cloud-init on first boot of an instance
+## modifications made here will not survive a re-bundle.
+## if you wish to make changes you can:
+## a.) do the same in user-data
+## b.) add sources in /etc/yum.repos.d/
+## c.) make changes to template file /etc/cloud/templates/sources.list.aliyun.epel.tmpl
+###
+
+[epel]
+name=Extra Packages for Enterprise Linux 7 - $basearch
+baseurl=http://mirrors.cloud.aliyuncs.com/epel/7/$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=http://mirrors.cloud.aliyuncs.com/epel/RPM-GPG-KEY-EPEL-7
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
+baseurl=http://mirrors.cloud.aliyuncs.com/epel/7/$basearch/debug
+failovermethod=priority
+enabled=0
+gpgkey=http://mirrors.cloud.aliyuncs.com/epel/RPM-GPG-KEY-EPEL-7
+gpgcheck=1
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 7 - $basearch - Source
+baseurl=http://mirrors.cloud.aliyuncs.com/epel/7/SRPMS
+failovermethod=priority
+enabled=0
+gpgkey=http://mirrors.cloud.aliyuncs.com/epel/RPM-GPG-KEY-EPEL-7
+gpgcheck=1

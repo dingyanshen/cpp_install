@@ -1,0 +1,12 @@
+"将本文件移入 家目录覆盖同名文件 即可一键编译运行cpp文件
+map <F5> :call CompileRunGcc()<CR>
+
+
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec '!clear && g++ % && ./a.out'
+    elseif &filetype == 'cpp'
+        exec '!clear && g++ % && ./a.out'
+    endif
+endfunc
